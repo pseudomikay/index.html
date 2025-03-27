@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Users</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            font-size: 14px;
+            background: #ecf0f3;
+            margin: 0;
+            padding: 15px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #2c3e50;
+            border-radius: 12px;
+        }
+
+
+        .card:nth-child(odd) {
+            border-color: #3498db;
+            background: #d6eaf8;
+        }
+
+        .card:nth-child(even) {
+            border-color: #e74c3c;
+            background: #fadbd8;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2),
+                -8px -8px 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #3498db;
+        }
+
+        strong {
+            font-size: 16px;
+            color: #2c3e50;
+        }
+
+        p {
+            margin: 6px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        p strong {
+            color: #2c3e50;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ABC College</h1>
+    <h2>Library Users</h2>
+    <div class="container" id="student-list"></div>
+
+    <script>
+        const studentsXML = `
+        <students>
+            <student>
+                <picture>https://m.media-amazon.com/images/M/MV5BNmY5NzU3MjMtOWM0MC00NTIzLTkzMDQtYTlkYzFlNDNjMDRkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</picture>
+                <name>Mica</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://m.media-amazon.com/images/M/MV5BYmVlYTUxNDgtOWM5Zi00OGNiLTgzMDMtMmRjMzFhNWY1ZmQyXkEyXkFqcGc@._V1_.jpg</picture>
+                <name>Kiefer</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG1</section>
+                <adviser>Prof. Reyes</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://m.media-amazon.com/images/M/MV5BMjY3YTA5MGYtZGQzNy00NDRkLWI4NDctNjhkN2Y1MDk5ODNlXkEyXkFqcGc@._V1_.jpg</picture>
+                <name>Yuri</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG3</section>
+                <adviser>Prof. Dela Cruz</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://i.pinimg.com/736x/30/be/0a/30be0a24255b4d7b7a092c5cf69d71ca.jpg</picture>
+                <name>JayJay</name>
+                <course>BSCS</course>
+                <year>3</year>
+                <section>CS1</section>
+                <adviser>Prof. Lim</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://i.pinimg.com/736x/b8/ba/14/b8ba149df2d3118f9a21bc8773012e87.jpg</picture>
+                <name>Cinco Neith</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://contents.pep.ph/images2/images2/2020/07/16/frost-galang-1594907554.jpg</picture>
+                <name>David</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://i.pinimg.com/736x/d5/cb/8a/d5cb8a5933be10a9cb6bcfa0949b6e82.jpg</picture>
+                <name>Felix</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://www.bworldonline.com/wp-content/uploads/2024/10/IMG_8470.jpg</picture>
+                <name>Edrix</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://m.media-amazon.com/images/M/MV5BYmIwNzBjMzYtMzc5Yy00NjkyLWFkMDYtMjQ0NzM2OTE5NDE4XkEyXkFqcGc@._V1_.jpg</picture>
+                <name>Rory</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+            <student>
+                <picture>https://sa.kapamilya.com/absnews/abscbnnews/media/2023/news/04/23/andrei.jpg</picture>
+                <name>Aries</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+        </students>`;
+
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(studentsXML, "text/xml");
+        const students = xmlDoc.getElementsByTagName("student");
+        const container = document.getElementById("student-list");
+
+        for (let student of students) {
+            const studentCard = document.createElement("div");
+            studentCard.classList.add("card");
+            studentCard.innerHTML = `
+                <div class="card-header">
+                    <img src="${student.getElementsByTagName("picture")[0].textContent}" alt="Student Picture">
+                    <strong>${student.getElementsByTagName("name")[0].textContent}</strong>
+                </div>
+                <p><strong>Course:</strong> ${student.getElementsByTagName("course")[0].textContent}</p>
+                <p><strong>Year Level / Section:</strong> ${student.getElementsByTagName("year")[0].textContent} ${student.getElementsByTagName("section")[0].textContent}</p>
+                <p><strong>Adviser:</strong> ${student.getElementsByTagName("adviser")[0].textContent}</p>
+                <p><strong>School Year:</strong> ${student.getElementsByTagName("schoolYear")[0].textContent}</p>
+            `;
+            container.appendChild(studentCard);
+        }
+    </script>
+</body>
+
+</html>
