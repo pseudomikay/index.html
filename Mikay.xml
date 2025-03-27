@@ -2,15 +2,6 @@
 
         <students>
             <student>
-                <picture>https://m.media-amazon.com/images/M/MV5BNmY5NzU3MjMtOWM0MC00NTIzLTkzMDQtYTlkYzFlNDNjMDRkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</picture>
-                <name>Mica</name>
-                <course>BSIT</course>
-                <year>3</year>
-                <section>BG2</section>
-                <adviser>Prof. Santos</adviser>
-                <schoolYear>2024-2025</schoolYear>
-            </student>
-            <student>
                 <picture>https://m.media-amazon.com/images/M/MV5BYmVlYTUxNDgtOWM5Zi00OGNiLTgzMDMtMmRjMzFhNWY1ZmQyXkEyXkFqcGc@._V1_.jpg</picture>
                 <name>Kiefer</name>
                 <course>BSIT</course>
@@ -85,6 +76,15 @@
             <student>
                 <picture>https://sa.kapamilya.com/absnews/abscbnnews/media/2023/news/04/23/andrei.jpg</picture>
                 <name>Aries</name>
+                <course>BSIT</course>
+                <year>3</year>
+                <section>BG2</section>
+                <adviser>Prof. Santos</adviser>
+                <schoolYear>2024-2025</schoolYear>
+            </student>
+                <student>
+                <picture>https://m.media-amazon.com/images/M/MV5BNmY5NzU3MjMtOWM0MC00NTIzLTkzMDQtYTlkYzFlNDNjMDRkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg</picture>
+                <name>Mica</name>
                 <course>BSIT</course>
                 <year>3</year>
                 <section>BG2</section>
